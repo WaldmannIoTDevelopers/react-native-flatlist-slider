@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, Image, StyleSheet} from 'react-native';
+import {Pressable, Image, StyleSheet} from 'react-native';
 
 export default (ChildItem = ({
   item,
@@ -8,15 +8,17 @@ export default (ChildItem = ({
   index,
   imageKey,
   local,
-  height,
+  height
 }) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={() => onPress(index)}>
+    <Pressable
+      style={styles.container}
+      onPress={() => onPress(index)}>
       <Image
         style={[styles.image, style, {height: height}]}
         source={local ? item[imageKey] : {uri: item[imageKey]}}
       />
-    </TouchableOpacity>
+    </Pressable>
   );
 });
 
